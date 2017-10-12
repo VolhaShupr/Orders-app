@@ -1,38 +1,45 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc"
           xmlns:f="sap.ui.layout.form"
           xmlns="sap.m"
-          controllerName="Olga.Shupranova.app.controller.ShipInfo">
+          controllerName="Olga.Shupranova.app.controller.EditInfo">
     <VBox class="sapUiSmallMarginEnd">
         <f:SimpleForm id="SimpleFormToolbar"
                       editable="true"
                       layout="ResponsiveGridLayout"
-                      labelSpanL="2"
+                      labelSpanL="3"
                       labelSpanM="2"
                       emptySpanL="5"
-                      emptySpanM="5"
+                      emptySpanM="2"
                       columnsL="1"
                       columnsM="1">
             <f:toolbar>
                 <Toolbar id="TB1">
-                    <Title text="Ship To Form" level="H4" titleStyle="H4"/>
-                    <Button icon="sap-icon://edit" press="onInnerShipToEditPress"/>
+                    <Title text="{i18n>ShipToFormTitle}" level="H4" titleStyle="H4"/>
+                    <Button icon="sap-icon://edit" visible="{= !${appView>/edit} }" press="onEditPress"/>
+                    <Button icon="sap-icon://save" visible="{appView>/edit}" press="onSavePress" />
+                    <Button icon="sap-icon://cancel" visible="{appView>/edit}" press="onCancelPress" />
                 </Toolbar>
             </f:toolbar>
             <f:content>
-                <Label text="Ship To" />
-                <Input value="{odata>shipTo/name}" />
+                <Label text="{i18n>ShipToName}" />
+                <Input value="{odata>shipTo/name}" visible="{appView>/edit}" />
+                <Text text="{odata>shipTo/name}" visible="{= !${appView>/edit} }" />
 
-                <Label text="Address" />
-                <Input value="{odata>shipTo/address}"/>
+                <Label text="{i18n>ShipToAddress}" />
+                <Input value="{odata>shipTo/address}" visible="{appView>/edit}"/>
+                <Text text="{odata>shipTo/address}" visible="{= !${appView>/edit} }" />
 
-                <Label text="ZIP" />
-                <Input value="{odata>shipTo/ZIP}"/>
+                <Label text="{i18n>ShipToZIP}" />
+                <Input value="{odata>shipTo/ZIP}" visible="{appView>/edit}"/>
+                <Text text="{odata>shipTo/ZIP}" visible="{= !${appView>/edit} }" />
 
-                <Label text="Region"/>
-                <Input value="{odata>shipTo/region}"/>
+                <Label text="{i18n>ShipToRegion}"/>
+                <Input value="{odata>shipTo/region}" visible="{appView>/edit}"/>
+                <Text text="{odata>shipTo/region}" visible="{= !${appView>/edit} }" />
 
-                <Label text="Country" />
-                <Input value="{odata>shipTo/country}"/>
+                <Label text="{i18n>ShipToCountry}" />
+                <Input value="{odata>shipTo/country}" visible="{appView>/edit}"/>
+                <Text text="{odata>shipTo/country}" visible="{= !${appView>/edit} }" />
             </f:content>
         </f:SimpleForm>
     </VBox>

@@ -3,8 +3,8 @@
 	xmlns="sap.m">
 
 	<MessagePage
-		title="Not Found"
-		text="The requested resource was not found"
+		title="{i18n>NotFoundTitle}"
+		text="{i18n>NotFoundText}"
 		icon="{sap-icon://document}"
 		id="page"
 		description="">

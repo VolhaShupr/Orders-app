@@ -1,11 +1,11 @@
 sap.ui.define(["sap/uxap/BlockBase"], function (BlockBase) {
     "use strict";
-    var myBlock = BlockBase.extend("Olga.Shupranova.app.block.products.BlockProducts", {
+    var oBlock = BlockBase.extend("Olga.Shupranova.app.block.products.BlockProducts", {
         metadata: {
             events: {
-                "dummy": {}
+                "innerPress": {}
             }
         }
     });
-    return myBlock;
+    return oBlock;
 }, true);

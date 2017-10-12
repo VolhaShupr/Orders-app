@@ -4,7 +4,7 @@
         xmlns:core="sap.ui.core" >
     <Dialog
             id="OrderDialog"
-            title="Order form"
+            title="{i18n>OrderDialogTitle}"
             editable="true"
             draggable="true"
             contentHeight="50%">
@@ -19,116 +19,60 @@
                 columnsL="1"
                 columnsM="1">
             <f:content>
-                <Label text="Customer"/>
-                <Input value="{path: 'orderDialog>/summary/customer',
-					type: 'sap.ui.model.type.String',
-					constraints: {
-						minLength: 1
-					}}" />
-                <Label text="Created at"/>
-                <Input value="{path: 'orderDialog>/summary/createdAt',
+                <Label text="{i18n>Customer}"/>
+                <Input value="{summary/customer}" />
+                <Label text="{i18n>CreatedAt}"/>
+                <Input value="{path: 'summary/createdAt',
 					type: 'sap.ui.model.type.String',
 					constraints: {
 						minLength: 1
 					}}"/>
-                <Label text="Shipped at"/>
-                <Input value="{path: 'orderDialog>/summary/shippedAt',
+                <Label text="{i18n>ShippedAt}"/>
+                <Input value="{path: 'summary/shippedAt',
 					type: 'sap.ui.model.type.String',
 					constraints: {
 						minLength: 1
 					}}" />
-                <Label text="Status"/>
-                <Input value="{path: 'orderDialog>/summary/status',
-					type: 'sap.ui.model.type.String',
-					constraints: {
-						minLength: 1
-					}}" />
-                <Label text="Total price"/>
-                <Input value="{path: 'orderDialog>/summary/totalPrice',
-					type: 'sap.ui.model.type.String',
-					constraints: {
-						minLength: 1
-					}}" />
-                <Label text="Currency"/>
-                <Input value="{path: 'orderDialog>/summary/currency',
-					type: 'sap.ui.model.type.String',
-					constraints: {
-						minLength: 1
-					}}" />
+                <Label text="{i18n>Status}"/>
+                <Input value="{summary/status}" />
+                <Label text="{i18n>OrderTotalPrice}"/>
+                <Input value="{summary/totalPrice}" />
+                <Label text="{i18n>OrderCurrency}"/>
+                <Input value="{summary/currency}" />
                 <Text text=""/>
 
-                <Text text="SHIP TO"
-                textAlign="Center"/>
-                <Label text="Country"/>
-                <Input value="{path: 'orderDialog>/shipTo/country',
-					type: 'sap.ui.model.type.String',
-					constraints: {
-						minLength: 1
-					}}" />
-                <Label text="Name"/>
-                <Input value="{path: 'orderDialog>/shipTo/name',
-					type: 'sap.ui.model.type.String',
-					constraints: {
-						minLength: 1
-					}}" />
-                <Label text="Address"/>
-                <Input value="{path: 'orderDialog>/shipTo/address',
-					type: 'sap.ui.model.type.String',
-					constraints: {
-						minLength: 1
-					}}" />
-                <Label text="ZIP"/>
-                <Input value="{path: 'orderDialog>/shipTo/ZIP',
-					type: 'sap.ui.model.type.String',
-					constraints: {
-						minLength: 1
-					}}" />
-                <Label text="Region"/>
-                <Input value="{path: 'orderDialog>/shipTo/region',
-					type: 'sap.ui.model.type.String',
-					constraints: {
-						minLength: 1
-					}}" />
-                <Text text=""/>
-
-                <Text text="CUSTOMER INFO"
+                <Text text="{i18n>ShipToSubtitleText}"
                       textAlign="Center"/>
-                <Label text="First Name"/>
-                <Input value="{path: 'orderDialog>/customerInfo/firstName',
-					type: 'sap.ui.model.type.String',
-					constraints: {
-						minLength: 1
-					}}" />
-                <Label text="Last Name"/>
-                <Input value="{path: 'orderDialog>/customerInfo/lastName',
-					type: 'sap.ui.model.type.String',
-					constraints: {
-						minLength: 1
-					}}" />
-                <Label text="Address"/>
-                <Input value="{path: 'orderDialog>/customerInfo/address',
-					type: 'sap.ui.model.type.String',
-					constraints: {
-						minLength: 1
-					}}" />
-                <Label text="Phone"/>
-                <Input value="{path: 'orderDialog>/customerInfo/phone',
-					type: 'sap.ui.model.type.String',
-					constraints: {
-						minLength: 1
-					}}" />
-                <Label text="Email"/>
-                <Input value="{path: 'orderDialog>/customerInfo/email',
-					type: 'sap.ui.model.type.String',
-					constraints: {
-						minLength: 1
-					}}" />
+                <Label text="{i18n>ShipToCountry}"/>
+                <Input value="{shipTo/country}" />
+                <Label text="{i18n>ShipToName}"/>
+                <Input value="{shipTo/name}" />
+                <Label text="{i18n>ShipToAddress}"/>
+                <Input value="{shipTo/address}" />
+                <Label text="{i18n>ZIP}"/>
+                <Input value="{shipTo/ZIP}" />
+                <Label text="{i18n>ShipToRegion}"/>
+                <Input value="{shipTo/region}" />
+                <Text text=""/>
+
+                <Text text="{i18n>CustomerInfoSubtitleText}"
+                      textAlign="Center"/>
+                <Label text="{i18n>CustomerFirstName}"/>
+                <Input value="{customerInfo/firstName}" />
+                <Label text="{i18n>CustomerLastName}"/>
+                <Input value="{customerInfo/lastName}" />
+                <Label text="{i18n>CustomerAddress}"/>
+                <Input value="{customerInfo/address}" />
+                <Label text="{i18n>CustomerPhone}"/>
+                <Input value="{customerInfo/phone}" />
+                <Label text="{i18n>CustomerEmail}"/>
+                <Input value="{customerInfo/email}" />
             </f:content>
         </f:SimpleForm>
 
         <buttons>
-            <Button text="Save" press="onSaveDialogPress" />
-            <Button text="Close" press="onCancelDialogPress" />
+            <Button text="{i18n>SaveButtonText}" press="onSaveDialogPress" />
+            <Button text="{i18n>CloseButtonText}" press="onCancelDialogPress" />
         </buttons>
     </Dialog>
 </core:FragmentDefinition>

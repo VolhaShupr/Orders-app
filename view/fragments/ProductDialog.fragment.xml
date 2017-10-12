@@ -4,12 +4,11 @@
         xmlns:core="sap.ui.core" >
     <Dialog
             id="ProductDialog"
-            title="Order form"
+            title="{i18n>ProductDialogTitle}"
             editable="true"
-            draggable="true"
-            contentHeight="50%">
+            draggable="true">
         <f:SimpleForm
-                id="OrderForm"
+                id="ProductForm"
                 maxContainerCols="1"
                 layout="ResponsiveGridLayout"
                 labelSpanL="12"
@@ -19,116 +18,27 @@
                 columnsL="1"
                 columnsM="1">
             <f:content>
-                <Label text="Customer"/>
-                <Input value="{path: 'orderDialog>/summary/customer',
-					type: 'sap.ui.model.type.String',
-					constraints: {
-						minLength: 1
-					}}" />
-                <Label text="Created at"/>
-                <Input value="{path: 'orderDialog>/summary/createdAt',
-					type: 'sap.ui.model.type.String',
-					constraints: {
-						minLength: 1
-					}}"/>
-                <Label text="Shipped at"/>
-                <Input value="{path: 'orderDialog>/summary/shippedAt',
-					type: 'sap.ui.model.type.String',
-					constraints: {
-						minLength: 1
-					}}" />
-                <Label text="Status"/>
-                <Input value="{path: 'orderDialog>/summary/status',
-					type: 'sap.ui.model.type.String',
-					constraints: {
-						minLength: 1
-					}}" />
-                <Label text="Total price"/>
-                <Input value="{path: 'orderDialog>/summary/totalPrice',
-					type: 'sap.ui.model.type.String',
-					constraints: {
-						minLength: 1
-					}}" />
-                <Label text="Currency"/>
-                <Input value="{path: 'orderDialog>/summary/currency',
-					type: 'sap.ui.model.type.String',
-					constraints: {
-						minLength: 1
-					}}" />
-                <Text text=""/>
-
-                <Text text="SHIP TO"
-                      textAlign="Center"/>
-                <Label text="Country"/>
-                <Input value="{path: 'orderDialog>/shipTo/country',
-					type: 'sap.ui.model.type.String',
-					constraints: {
-						minLength: 1
-					}}" />
-                <Label text="Name"/>
-                <Input value="{path: 'orderDialog>/shipTo/name',
-					type: 'sap.ui.model.type.String',
-					constraints: {
-						minLength: 1
-					}}" />
-                <Label text="Address"/>
-                <Input value="{path: 'orderDialog>/shipTo/address',
-					type: 'sap.ui.model.type.String',
-					constraints: {
-						minLength: 1
-					}}" />
-                <Label text="ZIP"/>
-                <Input value="{path: 'orderDialog>/shipTo/ZIP',
-					type: 'sap.ui.model.type.String',
-					constraints: {
-						minLength: 1
-					}}" />
-                <Label text="Region"/>
-                <Input value="{path: 'orderDialog>/shipTo/region',
-					type: 'sap.ui.model.type.String',
-					constraints: {
-						minLength: 1
-					}}" />
-                <Text text=""/>
-
-                <Text text="CUSTOMER INFO"
-                      textAlign="Center"/>
-                <Label text="First Name"/>
-                <Input value="{path: 'orderDialog>/customerInfo/firstName',
-					type: 'sap.ui.model.type.String',
-					constraints: {
-						minLength: 1
-					}}" />
-                <Label text="Last Name"/>
-                <Input value="{path: 'orderDialog>/customerInfo/lastName',
-					type: 'sap.ui.model.type.String',
-					constraints: {
-						minLength: 1
-					}}" />
-                <Label text="Address"/>
-                <Input value="{path: 'orderDialog>/customerInfo/address',
-					type: 'sap.ui.model.type.String',
-					constraints: {
-						minLength: 1
-					}}" />
-                <Label text="Phone"/>
-                <Input value="{path: 'orderDialog>/customerInfo/phone',
-					type: 'sap.ui.model.type.String',
-					constraints: {
-						minLength: 1
-					}}" />
-                <Label text="Email"/>
-                <Input value="{path: 'orderDialog>/customerInfo/email',
-					type: 'sap.ui.model.type.String',
-					constraints: {
-						minLength: 1
-					}}" />
+                <Label text="{i18n>ProductName}"/>
+                <Input value="{path: 'name',
+					type: 'sap.ui.model.type.String'}" />
+                <Label text="{i18n>ProductPrice}"/>
+                <Input value="{path: 'price',
+					type: 'sap.ui.model.type.Number'}"/>
+                <Label text="{i18n>ProductCurrency}"/>
+                <Input value="{path: 'currency',
+					type: 'sap.ui.model.type.String'}" />
+                <Label text="{i18n>ProductQuantity}"/>
+                <Input value="{path: 'quantity',
+					type: 'sap.ui.model.type.Number'}" />
+                <Label text="{i18n>ProductTotalPrice}"/>
+                <Input value="{path: 'totalPrice',
+					type: 'sap.ui.model.type.Number'}" />
             </f:content>
         </f:SimpleForm>
 
         <buttons>
-            <Button text="Save" press="onSaveDialogPress" />
-            <Button text="Close" press="onCancelDialogPress" />
+            <Button text="{i18n>SaveButtonText}" press="onSaveDialogPress" />
+            <Button text="{i18n>CloseButtonText}" press="onCancelConfirmDialogPress" />
         </buttons>
     </Dialog>
 </core:FragmentDefinition>

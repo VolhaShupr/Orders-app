@@ -11,11 +11,26 @@
             </Toolbar>
         </headerToolbar>
         <columns>
-            <Column><Text text="ID" /></Column>
-            <Column><Text text="Name" /></Column>
-            <Column><Text text="Price" /></Column>
-            <Column><Text text="Qty" /></Column>
-            <Column><Text text="Total price" /></Column>
+            <Column>
+                <Text text="{i18n>ProductId}" />
+            </Column>
+
+            <Column minScreenWidth="450px" demandPopin="true">
+                <Text text="{i18n>ProductName}" />
+            </Column>
+
+            <Column minScreenWidth="850px" demandPopin="true">
+                <Text text="{i18n>ProductPrice}" />
+            </Column>
+
+            <Column minScreenWidth="650px" demandPopin="true">
+                <Text text="{i18n>TableQuantityHeaderColumn}" />
+            </Column>
+
+            <Column>
+                <Text text="{i18n>ProductTotalPrice}" />
+            </Column>
+
             <Column width="1.5rem"/>
             <Column width="1.5rem"/>
         </columns>

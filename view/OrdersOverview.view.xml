@@ -4,7 +4,7 @@
 	controllerName="Olga.Shupranova.app.controller.OrdersOverview">
 	<App>
 		<pages>
-			<Page title="Orders overview">
+			<Page title="{i18n>OrdersPageTitle}">
 				<content>
 					<IconTabBar
 							id="idIconTabBar"
@@ -14,7 +14,7 @@
 							<IconTabFilter
 									showAll="true"
 									count="{ordersView>/allOrdersCount}"
-									text="All orders"
+									text="{i18n>TabTextAll}"
 									key="All" >
 							</IconTabFilter>
 							<IconTabSeparator />
@@ -22,13 +22,13 @@
 									icon="sap-icon://pending"
 									iconColor="Negative"
 									count="{ordersView>/pendingCount}"
-									text="Pending"
+									text="{i18n>TabTextPending}"
 									key="Pending" />
 							<IconTabFilter
 									icon="sap-icon://accept"
 									iconColor="Positive"
 									count="{ordersView>/acceptedCount}"
-									text="Accepted"
+									text="{i18n>TabTextAccepted}"
 									key="Accepted" />
 						</items>
 						<content>
@@ -42,13 +42,32 @@
 								</Toolbar>
 							</headerToolbar>
 							<columns>
-								<Column><Text text="ID" /></Column>
-								<Column><Text text="Customer" /></Column>
-								<Column><Text text="Created at" /></Column>
-								<Column><Text text="Shipped at" /></Column>
-								<Column><Text text="Status"/></Column>
-								<Column><Text text="Total price" /></Column>
-								<Column><Text text="Ship country" /></Column>
+								<Column><Text text="{i18n>OrderId}" /></Column>
+
+								<Column>
+									<Text text="{i18n>Customer}" />
+								</Column>
+
+								<Column minScreenWidth="1050px" demandPopin="true">
+									<Text text="{i18n>CreatedAt}" />
+								</Column>
+
+								<Column minScreenWidth="800px" demandPopin="true">
+									<Text text="{i18n>ShippedAt}" />
+								</Column>
+
+								<Column minScreenWidth="600px" demandPopin="true">
+									<Text text="{i18n>Status}"/>
+								</Column>
+
+								<Column minScreenWidth="400px" demandPopin="true">
+									<Text text="{i18n>OrderTotalPrice}" />
+								</Column>
+
+								<Column minScreenWidth="1260px" demandPopin="true">
+									<Text text="{i18n>ShipToCountry}" />
+								</Column>
+
 								<Column width="1.5rem"/>
 								<Column width="1.5rem"/>
 							</columns>
@@ -59,9 +78,9 @@
 										<Text text="{odata>id}" />
 										<Text text="{odata>summary/customer}" />
 										<Text text="{path: 'odata>summary/createdAt',
-												formatter: 'Olga.Shupranova.app.Formatter.dateFormatter'}"/>
+												formatter: 'Olga.Shupranova.app.model.Formatter.dateFormatter'}"/>
 										<Text text="{path: 'odata>summary/shippedAt',
-												formatter: 'Olga.Shupranova.app.Formatter.dateFormatter'}" />
+												formatter: 'Olga.Shupranova.app.model.Formatter.dateFormatter'}" />
 										<Text text="{odata>summary/status}"
 
 											  id="ordersStatus"/>

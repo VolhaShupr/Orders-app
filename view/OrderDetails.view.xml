@@ -8,7 +8,7 @@
     xmlns:products="Olga.Shupranova.app.block.products"
     controllerName="Olga.Shupranova.app.controller.OrderDetails">
     <m:Page
-        title="Order details"
+        title="{i18n>OrderDetailsPageTitle}"
         showNavButton="true"
         navButtonPress="onNavBack">
         <m:content>
@@ -16,51 +16,58 @@
                               upperCaseAnchorBar="false">
                 <headerTitle>
                     <ObjectPageHeader
-                              objectTitle="{parts: [{path: 'odata>id'}, {path: 'odata>summary/createdAt'}],
-                                            formatter: 'Olga.Shupranova.app.Formatter.orderHeaderFormatter'}"
-                              objectSubtitle="Total price {odata>summary/totalPrice} {odata>summary/currency}"/>
+                              objectTitle="{parts: ['i18n>HeaderObjectTitlePartOrder',
+                                            'odata>id',
+                                            'i18n>HeaderObjectTitlePartFrom',
+                                            'odata>summary/createdAt'],
+                                            formatter: 'Olga.Shupranova.app.model.Formatter.orderHeaderFormatter'}"
+                              objectSubtitle="{parts: ['i18n>HeaderObjectSubTitle',
+                                             'odata>summary/totalPrice', 'odata>summary/currency'],
+                                             formatter: 'jQuery.sap.formatMessage'}"/>
                 </headerTitle>
                 <headerContent>
                     <layout:VerticalLayout>
-                    <m:ObjectAttribute text="Status: {odata>summary/status}"/>
-                    <m:ObjectAttribute text='Customer: {odata>summary/customer}'/>
+                    <m:ObjectAttribute text="{parts: ['i18n>HeaderContentStatusText',
+                                             'odata>summary/status'],
+                                             formatter: 'jQuery.sap.formatMessage'}"/>
+                    <m:ObjectAttribute text="{parts: ['i18n>HeaderContentCustomerText',
+                                            'odata>summary/customer'],
+                                             formatter: 'jQuery.sap.formatMessage'}"/>
                     </layout:VerticalLayout>
                 </headerContent>
 
                 <sections>
 
-                    <ObjectPageSection title="Ship info"
+                    <ObjectPageSection title="{i18n>HeaderBarShip}"
                                        upperCaseAnchorBar="false">
                         <subSections>
-                            <ObjectPageSubSection title="Ship info"
+                            <ObjectPageSubSection title="{i18n>HeaderBarShip}"
                                                   upperCaseAnchorBar="false">
                                 <blocks>
-                                    <ship:BlockShipInfo id="shipInfo"
-                                                        dummy="onEditPress"/>
+                                    <ship:BlockShipInfo id="shipInfo"/>
                                 </blocks>
                             </ObjectPageSubSection>
                         </subSections>
                     </ObjectPageSection>
 
-                    <ObjectPageSection title="Customer info"
+                    <ObjectPageSection title="{i18n>HeaderBarCustomer}"
                                        titleUppercase="false">
                         <subSections>
-                            <ObjectPageSubSection title="Customer info">
+                            <ObjectPageSubSection title="{i18n>HeaderBarCustomer}">
                                 <blocks>
-                                    <customer:BlockCustomerInfo id="customerInfo"
-                                                                dummy="onEditPress"/>
+                                    <customer:BlockCustomerInfo id="customerInfo"/>
                                 </blocks>
                             </ObjectPageSubSection>
                         </subSections>
                     </ObjectPageSection>
 
-                    <ObjectPageSection title="Products"
+                    <ObjectPageSection title="{i18n>HeaderBarProducts}"
                                        titleUppercase="false">
                         <subSections>
-                            <ObjectPageSubSection title="Products">
+                            <ObjectPageSubSection title="{i18n>HeaderBarProducts}">
                                 <blocks>
                                     <products:BlockProducts id="productsInfo"
-                                                            dummy="productBlockEventsFactory"/>
+                                                            innerPress="handleProductBlockEvents"/>
                                 </blocks>
                             </ObjectPageSubSection>
                         </subSections>

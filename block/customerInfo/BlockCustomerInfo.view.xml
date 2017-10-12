@@ -1,38 +1,45 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc"
           xmlns:f="sap.ui.layout.form"
           xmlns="sap.m"
-          controllerName="Olga.Shupranova.app.controller.CustomerInfo">
+          controllerName="Olga.Shupranova.app.controller.EditInfo">
     <VBox class="sapUiSmallMarginEnd">
         <f:SimpleForm id="SimpleFormToolbar"
                       editable="true"
                       layout="ResponsiveGridLayout"
-                      labelSpanL="2"
+                      labelSpanL="3"
                       labelSpanM="2"
                       emptySpanL="5"
-                      emptySpanM="5"
+                      emptySpanM="2"
                       columnsL="1"
                       columnsM="1">
             <f:toolbar>
                 <Toolbar id="TB1">
-                    <Title text="Customer info form" level="H4" titleStyle="H4"/>
-                    <Button icon="sap-icon://edit" press="onInnerCustomerEditPress"/>
+                    <Title text="{i18n>CustomerFormTitle}" level="H4" titleStyle="H4"/>
+                    <Button icon="sap-icon://edit" visible="{= !${appView>/edit} }" press="onEditPress"/>
+                    <Button icon="sap-icon://save" visible="{appView>/edit}" press="onSavePress" />
+                    <Button icon="sap-icon://cancel" visible="{appView>/edit}" press="onCancelPress" />
                 </Toolbar>
             </f:toolbar>
             <f:content>
-                <Label text="First name" />
-                <Input value="{odata>customerInfo/firstName}" />
+                <Label text="{i18n>CustomerFirstName}" />
+                <Input value="{odata>customerInfo/firstName}" visible="{appView>/edit}" />
+                <Text text="{odata>customerInfo/firstName}" visible="{= !${appView>/edit} }" />
 
-                <Label text="Last name" />
-                <Input value="{odata>customerInfo/lastName}"/>
+                <Label text="{i18n>CustomerLastName}" />
+                <Input value="{odata>customerInfo/lastName}" visible="{appView>/edit}" />
+                <Text text="{odata>customerInfo/lastName}" visible="{= !${appView>/edit} }" />
 
-                <Label text="Address" />
-                <Input value="{odata>customerInfo/address}"/>
+                <Label text="{i18n>CustomerAddress}" />
+                <Input value="{odata>customerInfo/address}" visible="{appView>/edit}" />
+                <Text text="{odata>customerInfo/address}" visible="{= !${appView>/edit} }" />
 
-                <Label text="Phone"/>
-                <Input value="{odata>customerInfo/phone}"/>
+                <Label text="{i18n>CustomerPhone}"/>
+                <Input value="{odata>customerInfo/phone}" visible="{appView>/edit}" />
+                <Text text="{odata>customerInfo/phone}" visible="{= !${appView>/edit} }" />
 
-                <Label text="Email" />
-                <Input value="{odata>customerInfo/email}"/>
+                <Label text="{i18n>CustomerEmail}" />
+                <Input value="{odata>customerInfo/email}" visible="{appView>/edit}" />
+                <Text text="{odata>customerInfo/email}" visible="{= !${appView>/edit} }" />
             </f:content>
         </f:SimpleForm>
     </VBox>

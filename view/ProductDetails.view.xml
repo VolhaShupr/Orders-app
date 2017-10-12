@@ -3,7 +3,7 @@
     xmlns:mvc="sap.ui.core.mvc"
     controllerName="Olga.Shupranova.app.controller.ProductDetails">
     <Page
-        title="Product details"
+        title="{i18n>ProductDetailsViewTitle}"
         showNavButton="true"
         navButtonPress="onNavBack">
         <ObjectHeader
@@ -13,29 +13,34 @@
             backgroundDesign="Solid"
             condensed="true">
             <attributes>
-                <ObjectAttribute title="Quantity" text="{odata>quantity}, price: {odata>price}"/>
+                <ObjectAttribute text="{parts: ['i18n>ProductSubHeader',
+                                             'odata>quantity', 'odata>price'],
+                                             formatter: 'jQuery.sap.formatMessage'}"/>
             </attributes>
         </ObjectHeader>
-        <Panel>
-            <Toolbar>
-                <Label text="Author name:"
+        <Panel id="FeedPanel">
+            <Toolbar id="FeedToolBar">
+                <Label text="{i18n>AuthorLabelText}"
                        class="sapUiSmallMarginCenter" />
-                <Input placeholder="Enter name"
-                width="10rem"/>
-                <Label text="Rating:"/>
+                <Input placeholder="{i18n>AuthorInputPlaceholder}"
+                width="10rem"
+                value="{author}"/>
+                <Label text="{i18n>RatingLabelText}"/>
                 <RatingIndicator maxValue="5"
                                  class="sapUiSmallMargiCenter"
-                                 value="0"/>
+                                 value="{rating}"/>
             </Toolbar>
-            <FeedInput
-                post="onPost"
-                showIcon="true" />
+            <FeedInput id="FeedInput"
+                post="onCommentPost"
+                showIcon="true"
+                value="{comment}"/>
             <List items="{odata>comments}"
                 id="idCommentsList"
                 showSeparators="Inner">
                 <FeedListItem
                     sender="{odata>author}"
-                    info="Rating: {odata>rating}"
+                    info="{parts: ['i18n>RatingFeedListItem', 'odata>rating'],
+                                          formatter: 'jQuery.sap.formatMessage'}"
                     text="{odata>comment}"
                     />
             </List>

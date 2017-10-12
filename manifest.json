@@ -112,6 +112,12 @@
 					"disableHeadRequestForToken": true,
 					"tokenHandling": false
 				}
+			},
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "Olga.Shupranova.app.i18n.i18n"
+				}
 			}
 		}
 	}

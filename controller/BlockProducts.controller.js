@@ -1,32 +1,49 @@
-(function () {
-    'use strict';
-    jQuery.sap.declare({modName: "Olga.Shupranova.app.controller.BlockProducts", "type": "controller"});
-
-    sap.ui.core.mvc.Controller.extend("Olga.Shupranova.app.controller.BlockProducts", {
+sap.ui.define([
+    "sap/ui/core/mvc/Controller"
+], function (Controller) {
+    "use strict";
+    return Controller.extend("Olga.Shupranova.app.controller.BlockProducts", {
+        /**
+         * Open product details page press event handler, send product Id to parent block.
+         *
+         * @param {sap.ui.base.Event} oEvent event object
+         */
         onInnerProductDetailsPress: function (oEvent) {
             var sId = 'ProductDetails';
             var oCtx = oEvent.getSource().getBindingContext("odata");
-            var productId = oCtx.getObject('id');
-            this.oParentBlock.fireDummy({
+            var nProductId = oCtx.getObject('id');
+            this.oParentBlock.fireInnerPress({
                 sEventId: sId,
-                prodId: productId
-                });
+                prodId: nProductId
+            });
         },
 
-        onInnerAddProductPress: function (oEvent) {
+        /**
+         * "Add product" button press event handler, send information about pressed button to parent block
+         */
+        onInnerAddProductPress: function () {
             var sId = 'AddProduct';
-            this.oParentBlock.fireDummy({
+            this.oParentBlock.fireInnerPress({
                 sEventId: sId
             });
 
         },
 
+        /**
+         * "Delete" product button press event handler, send context to parent block.
+         *
+         * @param {sap.ui.base.Event} oEvent event object
+         */
         onInnerDeleteProductPress: function (oEvent) {
             var sId = 'DeleteProduct';
-            this.oParentBlock.fireDummy({
-                sEventId: sId
+            var oCtx = oEvent.getSource().getBindingContext("odata");
+            this.oParentBlock.fireInnerPress({
+                sEventId: sId,
+                oContext: oCtx
             });
-
         }
-    });
-}());
+    })
+});
+
+
+
