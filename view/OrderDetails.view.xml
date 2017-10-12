@@ -1,0 +1,70 @@
+<mvc:View
+    xmlns:m="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.uxap"
+    xmlns:layout="sap.ui.layout"
+    xmlns:forms="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:ship="Olga.Shupranova.app.block.shipInfo"
+    xmlns:customer="Olga.Shupranova.app.block.customerInfo"
+    xmlns:products="Olga.Shupranova.app.block.products"
+    controllerName="Olga.Shupranova.app.controller.OrderDetails">
+    <m:Page
+        title="Order details"
+        showNavButton="true"
+        navButtonPress="onNavBack">
+        <m:headerContent>
+            <m:Button icon="sap-icon://navigation-right-arrow"
+                    type="Navigation"
+                    press="onOrderDetailsPress"/>
+        </m:headerContent>
+        <m:content>
+            <ObjectPageLayout id="ObjectPageLayout">
+                <headerTitle>
+                    <ObjectPageHeader
+                              objectTitle="Order (7), from Sep 4, 2017"
+                              objectSubtitle="Total price 1000 EUR"/>
+                </headerTitle>
+                <headerContent>
+                    <layout:VerticalLayout>
+                    <m:ObjectAttribute text="Status: Pending"/>
+                    <m:ObjectAttribute text='Customer: ООО "Артем Соль"'/>
+                    </layout:VerticalLayout>
+                </headerContent>
+                <sections>
+                    <ObjectPageSection title="Ship info">
+                        <subSections>
+                            <ObjectPageSubSection
+                                    title="Ship info"
+                                    titleUppercase="true">
+                                <blocks>
+                                    <ship:BlockShipInfo id="shipInfo"/>
+                                </blocks>
+                            </ObjectPageSubSection>
+                        </subSections>
+                    </ObjectPageSection>
+                    <ObjectPageSection title="Customer info">
+                        <subSections>
+                            <ObjectPageSubSection title="Customer info"
+                                                  titleUppercase="false">
+                                <blocks>
+                                    <customer:BlockCustomerInfo id="customerInfo"/>
+                                </blocks>
+                            </ObjectPageSubSection>
+                        </subSections>
+                    </ObjectPageSection>
+                    <ObjectPageSection title="Products">
+                        <subSections>
+                            <ObjectPageSubSection title="Products"
+                                                  titleUppercase="true">
+                                <blocks>
+                                    <products:BlockProducts id="productsInfo"/>
+                                </blocks>
+                            </ObjectPageSubSection>
+                        </subSections>
+                    </ObjectPageSection>
+                </sections>
+            </ObjectPageLayout>
+        </m:content>
+    </m:Page>
+</mvc:View>

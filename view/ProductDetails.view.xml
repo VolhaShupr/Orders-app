@@ -1,0 +1,43 @@
+<mvc:View
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    controllerName="Olga.Shupranova.app.controller.ProductDetails">
+    <Page
+        title="Product details"
+        showNavButton="true"
+        navButtonPress="onNavBack">
+        <ObjectHeader
+            title="Milk"
+            number="200.00"
+            numberUnit="USD"
+            backgroundDesign="Solid">
+            <attributes>
+                <ObjectAttribute title="Quantity" text="20, price: 10" />
+            </attributes>
+        </ObjectHeader>
+        <Panel>
+            <Toolbar>
+                <Label text="Author name:"
+                       class="sapUiSmallMarginCenter" />
+                <Input placeholder="Enter name"
+                width="10rem"/>
+                <Label text="Rating:"/>
+                <RatingIndicator maxValue="5"
+                                 class="sapUiSmallMargiCenter"
+                                 value="0"/>
+            </Toolbar>
+            <FeedInput
+                post="onPost"
+                showIcon="true" />
+            <List
+                id="idCommentsList"
+                showSeparators="Inner">
+                <FeedListItem
+                    sender="Herman"
+                    info="Rating: 4"
+                    text="Nice!"
+                    />
+            </List>
+        </Panel>
+    </Page>
+</mvc:View>

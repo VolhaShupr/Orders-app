@@ -1,0 +1,20 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+          xmlns:f="sap.ui.layout.form"
+          xmlns="sap.m">
+    <Table>
+        <headerToolbar>
+            <Toolbar>
+                <ToolbarSpacer/>
+                <Button icon="sap-icon://add"/>
+            </Toolbar>
+        </headerToolbar>
+        <columns>
+            <Column><Text text="ID" /></Column>
+            <Column><Text text="Name" /></Column>
+            <Column><Text text="Price" /></Column>
+            <Column><Text text="Qty" /></Column>
+            <Column><Text text="Total price" /></Column>
+        </columns>
+    </Table>
+
+</mvc:View>

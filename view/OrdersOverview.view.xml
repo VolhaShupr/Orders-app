@@ -1,0 +1,64 @@
+<mvc:View
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	controllerName="Olga.Shupranova.app.controller.OrdersOverview">
+	<App class="myAppDemoWT">
+		<pages>
+			<Page title="Orders overview">
+				<headerContent>
+					<Button icon="sap-icon://navigation-right-arrow"
+					type="Navigation"
+					press="onOrderDetailsPress"/>
+				</headerContent>
+				<content>
+					<IconTabBar
+							id="idIconTabBar"
+							select="handleIconTabBarSelect"
+							class="sapUiResponsiveContentPadding">
+						<items>
+							<IconTabFilter
+									showAll="true"
+									count="4"
+									text="All orders"
+									key="All" >
+								<Table>
+									<headerToolbar>
+										<Toolbar>
+											<ToolbarSpacer/>
+											<Button icon="sap-icon://add"/>
+										</Toolbar>
+									</headerToolbar>
+									<columns>
+										<Column><Text text="ID" /></Column>
+										<Column><Text text="Customer" /></Column>
+										<Column><Text text="Created at" /></Column>
+										<Column><Text text="Shipped at" /></Column>
+										<Column><Text text="Status" /></Column>
+										<Column><Text text="Total price" /></Column>
+										<Column><Text text="Ship country" /></Column>
+									</columns>
+								</Table>
+							</IconTabFilter>
+							<IconTabSeparator />
+							<IconTabFilter
+									icon="sap-icon://pending"
+									iconColor="Negative"
+									count="3"
+									text="Pending"
+									key="Pending" />
+							<IconTabFilter
+									icon="sap-icon://accept"
+									iconColor="Positive"
+									count="1"
+									text="Accepted"
+									key="Accepted" />
+
+						</items>
+					</IconTabBar>
+
+
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
