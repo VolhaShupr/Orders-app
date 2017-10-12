@@ -1,7 +1,8 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc"
-          xmlns:f="sap.ui.layout.form"
-          xmlns="sap.m">
-    <Table>
+          xmlns="sap.m"
+          controllerName="Olga.Shupranova.app.controller.BlockProducts">
+    <Table items="{odata>products}"
+           id="ProductsTable">
         <headerToolbar>
             <Toolbar>
                 <ToolbarSpacer/>
@@ -14,7 +15,27 @@
             <Column><Text text="Price" /></Column>
             <Column><Text text="Qty" /></Column>
             <Column><Text text="Total price" /></Column>
+            <Column width="1.5rem"/>
+            <Column width="1.5rem"/>
         </columns>
+        <items>
+            <ColumnListItem type="Active"
+                            press="onInnerProductDetailsPress">
+                <cells>
+                    <Text text="{odata>id}" />
+                    <Text text="{odata>name}" />
+                    <Text text="{odata>price}"/>
+                    <Text text="{odata>quantity}" />
+                    <Text text="{= ${odata>totalPrice} + ' ' + ${odata>currency}}"/>
+                    <Button icon="sap-icon://slim-arrow-right"
+                            type="Transparent"
+                            press="onInnerProductDetailsPress"/>
+                    <Button icon="sap-icon://sys-cancel"
+                            type="Transparent"
+                            press="onPress"/>
+                </cells>
+            </ColumnListItem>
+        </items>
     </Table>
 
 </mvc:View>

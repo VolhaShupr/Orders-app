@@ -49,14 +49,14 @@
 					]
 				},
                 {
-                    "pattern": "OrderDetails",
+                    "pattern": "OrderDetails/{OrderId}",
                     "name": "OrderDetails",
                     "target": [
                         "orderDetails"
                   ]
                 },
                 {
-                    "pattern": "ProductDetails",
+                    "pattern": "ProductDetails/{ProductId}",
                     "name": "ProductDetails",
                     "target": [
                         "productDetails"
@@ -100,6 +100,13 @@
 					"bundleName": "Olga.Shupranova.app.i18n.i18n"
 				}
 			}
+		},
+		"resources": {
+			"css": [
+				{
+				"uri": "css/style.css"
+				}
+			]
 		}
 	}
 }

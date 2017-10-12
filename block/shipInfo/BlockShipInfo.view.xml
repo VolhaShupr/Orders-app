@@ -19,19 +19,19 @@
             </f:toolbar>
             <f:content>
                 <Label text="Ship To" />
-                <Input value="Michael" />
+                <Input value="{odata>shipTo/name}" />
 
                 <Label text="Address" />
-                <Input value="Independency square"/>
+                <Input value="{odata>shipTo/address}"/>
 
                 <Label text="ZIP" />
-                <Input value="000001"/>
+                <Input value="{odata>shipTo/ZIP}"/>
 
                 <Label text="Region"/>
-                <Input value="Minsk"/>
+                <Input value="{odata>shipTo/region}"/>
 
                 <Label text="Country" />
-                <Input value="Belarus"/>
+                <Input value="{odata>shipTo/country}"/>
             </f:content>
         </f:SimpleForm>
     </VBox>

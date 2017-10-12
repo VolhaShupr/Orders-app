@@ -3,8 +3,6 @@
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.uxap"
     xmlns:layout="sap.ui.layout"
-    xmlns:forms="sap.ui.layout.form"
-    xmlns:core="sap.ui.core"
     xmlns:ship="Olga.Shupranova.app.block.shipInfo"
     xmlns:customer="Olga.Shupranova.app.block.customerInfo"
     xmlns:products="Olga.Shupranova.app.block.products"
@@ -13,30 +11,24 @@
         title="Order details"
         showNavButton="true"
         navButtonPress="onNavBack">
-        <m:headerContent>
-            <m:Button icon="sap-icon://navigation-right-arrow"
-                    type="Navigation"
-                    press="onOrderDetailsPress"/>
-        </m:headerContent>
         <m:content>
             <ObjectPageLayout id="ObjectPageLayout">
                 <headerTitle>
                     <ObjectPageHeader
-                              objectTitle="Order (7), from Sep 4, 2017"
-                              objectSubtitle="Total price 1000 EUR"/>
+                              objectTitle="{parts: [{path: 'odata>id'}, {path: 'odata>summary/createdAt'}],
+                                            formatter: 'Olga.Shupranova.app.Formatter.orderHeaderFormatter'}"
+                              objectSubtitle="Total price {odata>summary/totalPrice} {odata>summary/currency}"/>
                 </headerTitle>
                 <headerContent>
                     <layout:VerticalLayout>
-                    <m:ObjectAttribute text="Status: Pending"/>
-                    <m:ObjectAttribute text='Customer: ООО "Артем Соль"'/>
+                    <m:ObjectAttribute text="Status: {odata>summary/status}"/>
+                    <m:ObjectAttribute text='Customer: {odata>summary/customer}'/>
                     </layout:VerticalLayout>
                 </headerContent>
                 <sections>
                     <ObjectPageSection title="Ship info">
                         <subSections>
-                            <ObjectPageSubSection
-                                    title="Ship info"
-                                    titleUppercase="true">
+                            <ObjectPageSubSection title="Ship info">
                                 <blocks>
                                     <ship:BlockShipInfo id="shipInfo"/>
                                 </blocks>
@@ -45,8 +37,7 @@
                     </ObjectPageSection>
                     <ObjectPageSection title="Customer info">
                         <subSections>
-                            <ObjectPageSubSection title="Customer info"
-                                                  titleUppercase="false">
+                            <ObjectPageSubSection title="Customer info">
                                 <blocks>
                                     <customer:BlockCustomerInfo id="customerInfo"/>
                                 </blocks>
@@ -55,10 +46,10 @@
                     </ObjectPageSection>
                     <ObjectPageSection title="Products">
                         <subSections>
-                            <ObjectPageSubSection title="Products"
-                                                  titleUppercase="true">
+                            <ObjectPageSubSection title="Products">
                                 <blocks>
-                                    <products:BlockProducts id="productsInfo"/>
+                                    <products:BlockProducts id="productsInfo"
+                                                            dummy="onProductDetailsPress"/>
                                 </blocks>
                             </ObjectPageSubSection>
                         </subSections>

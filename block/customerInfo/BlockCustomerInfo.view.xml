@@ -19,19 +19,19 @@
             </f:toolbar>
             <f:content>
                 <Label text="First name" />
-                <Input value="Michael" />
+                <Input value="{odata>customerInfo/firstName}" />
 
                 <Label text="Last name" />
-                <Input value="Foobar"/>
+                <Input value="{odata>customerInfo/lastName}"/>
 
                 <Label text="Address" />
-                <Input value="Lapacina 7A"/>
+                <Input value="{odata>customerInfo/address}"/>
 
                 <Label text="Phone"/>
-                <Input value="0000000123"/>
+                <Input value="{odata>customerInfo/phone}"/>
 
                 <Label text="Email" />
-                <Input value="misha@gmail.com"/>
+                <Input value="{odata>customerInfo/email}"/>
             </f:content>
         </f:SimpleForm>
     </VBox>

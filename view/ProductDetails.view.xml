@@ -7,12 +7,13 @@
         showNavButton="true"
         navButtonPress="onNavBack">
         <ObjectHeader
-            title="Milk"
-            number="200.00"
-            numberUnit="USD"
-            backgroundDesign="Solid">
+            title="{odata>name}"
+            number="{odata>totalPrice}"
+            numberUnit="{odata>currency}"
+            backgroundDesign="Solid"
+            condensed="true">
             <attributes>
-                <ObjectAttribute title="Quantity" text="20, price: 10" />
+                <ObjectAttribute title="Quantity" text="{odata>quantity}, price: {odata>price}"/>
             </attributes>
         </ObjectHeader>
         <Panel>
@@ -29,13 +30,13 @@
             <FeedInput
                 post="onPost"
                 showIcon="true" />
-            <List
+            <List items="{odata>comments}"
                 id="idCommentsList"
                 showSeparators="Inner">
                 <FeedListItem
-                    sender="Herman"
-                    info="Rating: 4"
-                    text="Nice!"
+                    sender="{odata>author}"
+                    info="Rating: {odata>rating}"
+                    text="{odata>comment}"
                     />
             </List>
         </Panel>
