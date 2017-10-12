@@ -8,12 +8,12 @@
 				<content>
 					<IconTabBar
 							id="idIconTabBar"
-							select="onQuickFilter"
+							select="onFilterOrdersPress"
 							expandable="false">
 						<items>
 							<IconTabFilter
 									showAll="true"
-									count="4"
+									count="{ordersView>/allOrdersCount}"
 									text="All orders"
 									key="All" >
 							</IconTabFilter>
@@ -21,23 +21,24 @@
 							<IconTabFilter
 									icon="sap-icon://pending"
 									iconColor="Negative"
-									count="3"
+									count="{ordersView>/pendingCount}"
 									text="Pending"
 									key="Pending" />
 							<IconTabFilter
 									icon="sap-icon://accept"
 									iconColor="Positive"
-									count="1"
+									count="{ordersView>/acceptedCount}"
 									text="Accepted"
 									key="Accepted" />
 						</items>
 						<content>
 						<Table items="{odata>/Orders}"
-							   id="ordersTable">
+							   id="OrdersTable">
 							<headerToolbar>
 								<Toolbar>
 									<ToolbarSpacer/>
-									<Button icon="sap-icon://add"/>
+									<Button icon="sap-icon://add"
+									press="onAddOrderPress"/>
 								</Toolbar>
 							</headerToolbar>
 							<columns>
@@ -45,7 +46,7 @@
 								<Column><Text text="Customer" /></Column>
 								<Column><Text text="Created at" /></Column>
 								<Column><Text text="Shipped at" /></Column>
-								<Column><Text text="Status" /></Column>
+								<Column><Text text="Status"/></Column>
 								<Column><Text text="Total price" /></Column>
 								<Column><Text text="Ship country" /></Column>
 								<Column width="1.5rem"/>
@@ -61,7 +62,9 @@
 												formatter: 'Olga.Shupranova.app.Formatter.dateFormatter'}"/>
 										<Text text="{path: 'odata>summary/shippedAt',
 												formatter: 'Olga.Shupranova.app.Formatter.dateFormatter'}" />
-										<Text text="{odata>summary/status}" />
+										<Text text="{odata>summary/status}"
+
+											  id="ordersStatus"/>
 										<Text text="{parts:[{path:'odata>summary/totalPrice'},
 												{path:'odata>summary/currency'}],
 												type: 'sap.ui.model.type.Currency',
@@ -72,7 +75,7 @@
 												press="onOrderDetailsPress"/>
 										<Button icon="sap-icon://sys-cancel"
 												type="Transparent"
-												press="onPress"/>
+												press="onDeleteOrderPress"/>
 									</cells>
 								</ColumnListItem>
 							</items>

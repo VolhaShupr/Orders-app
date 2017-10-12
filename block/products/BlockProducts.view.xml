@@ -6,7 +6,8 @@
         <headerToolbar>
             <Toolbar>
                 <ToolbarSpacer/>
-                <Button icon="sap-icon://add"/>
+                <Button icon="sap-icon://add" press="onInnerAddProductPress"
+                        id="AddProductButton"/>
             </Toolbar>
         </headerToolbar>
         <columns>
@@ -20,7 +21,8 @@
         </columns>
         <items>
             <ColumnListItem type="Active"
-                            press="onInnerProductDetailsPress">
+                            press="onInnerProductDetailsPress"
+                            id="ProductItem">
                 <cells>
                     <Text text="{odata>id}" />
                     <Text text="{odata>name}" />
@@ -29,10 +31,12 @@
                     <Text text="{= ${odata>totalPrice} + ' ' + ${odata>currency}}"/>
                     <Button icon="sap-icon://slim-arrow-right"
                             type="Transparent"
-                            press="onInnerProductDetailsPress"/>
+                            press="onInnerProductDetailsPress"
+                            id="ProductDetailsButton"/>
                     <Button icon="sap-icon://sys-cancel"
                             type="Transparent"
-                            press="onPress"/>
+                            press="onInnerDeleteProductPress"
+                            id="DeleteProductButton"/>
                 </cells>
             </ColumnListItem>
         </items>

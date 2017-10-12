@@ -9,6 +9,15 @@
 		"description": "{{appDescription}}",
 		"applicationVersion": {
 			"version": "1.0.0"
+		},
+		"dataSources": {
+			"mainService": {
+				"uri": "http://localhost:3000/odata",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0"
+				}
+			}
 		}
 	},
 	"sap.ui": {
@@ -94,19 +103,16 @@
 			}
 		},
 		"models": {
-			"i18n": {
-				"type": "sap.ui.model.resource.ResourceModel",
+			"odata": {
+				"dataSource": "mainService",
 				"settings": {
-					"bundleName": "Olga.Shupranova.app.i18n.i18n"
+					"defaultBindingMode": "TwoWay",
+					"defaultCountMode": "InlineRepeat",
+					"useBatch": false,
+					"disableHeadRequestForToken": true,
+					"tokenHandling": false
 				}
 			}
-		},
-		"resources": {
-			"css": [
-				{
-				"uri": "css/style.css"
-				}
-			]
 		}
 	}
 }

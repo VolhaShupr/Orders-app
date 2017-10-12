@@ -12,7 +12,8 @@
         showNavButton="true"
         navButtonPress="onNavBack">
         <m:content>
-            <ObjectPageLayout id="ObjectPageLayout">
+            <ObjectPageLayout id="ObjectPageLayout"
+                              upperCaseAnchorBar="false">
                 <headerTitle>
                     <ObjectPageHeader
                               objectTitle="{parts: [{path: 'odata>id'}, {path: 'odata>summary/createdAt'}],
@@ -25,31 +26,41 @@
                     <m:ObjectAttribute text='Customer: {odata>summary/customer}'/>
                     </layout:VerticalLayout>
                 </headerContent>
+
                 <sections>
-                    <ObjectPageSection title="Ship info">
+
+                    <ObjectPageSection title="Ship info"
+                                       upperCaseAnchorBar="false">
                         <subSections>
-                            <ObjectPageSubSection title="Ship info">
+                            <ObjectPageSubSection title="Ship info"
+                                                  upperCaseAnchorBar="false">
                                 <blocks>
-                                    <ship:BlockShipInfo id="shipInfo"/>
+                                    <ship:BlockShipInfo id="shipInfo"
+                                                        dummy="onEditPress"/>
                                 </blocks>
                             </ObjectPageSubSection>
                         </subSections>
                     </ObjectPageSection>
-                    <ObjectPageSection title="Customer info">
+
+                    <ObjectPageSection title="Customer info"
+                                       titleUppercase="false">
                         <subSections>
                             <ObjectPageSubSection title="Customer info">
                                 <blocks>
-                                    <customer:BlockCustomerInfo id="customerInfo"/>
+                                    <customer:BlockCustomerInfo id="customerInfo"
+                                                                dummy="onEditPress"/>
                                 </blocks>
                             </ObjectPageSubSection>
                         </subSections>
                     </ObjectPageSection>
-                    <ObjectPageSection title="Products">
+
+                    <ObjectPageSection title="Products"
+                                       titleUppercase="false">
                         <subSections>
                             <ObjectPageSubSection title="Products">
                                 <blocks>
                                     <products:BlockProducts id="productsInfo"
-                                                            dummy="onProductDetailsPress"/>
+                                                            dummy="productBlockEventsFactory"/>
                                 </blocks>
                             </ObjectPageSubSection>
                         </subSections>

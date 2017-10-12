@@ -1,6 +1,7 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc"
           xmlns:f="sap.ui.layout.form"
-          xmlns="sap.m">
+          xmlns="sap.m"
+          controllerName="Olga.Shupranova.app.controller.CustomerInfo">
     <VBox class="sapUiSmallMarginEnd">
         <f:SimpleForm id="SimpleFormToolbar"
                       editable="true"
@@ -14,7 +15,7 @@
             <f:toolbar>
                 <Toolbar id="TB1">
                     <Title text="Customer info form" level="H4" titleStyle="H4"/>
-                    <Button icon="sap-icon://edit"/>
+                    <Button icon="sap-icon://edit" press="onInnerCustomerEditPress"/>
                 </Toolbar>
             </f:toolbar>
             <f:content>
